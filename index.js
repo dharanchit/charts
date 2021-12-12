@@ -13,7 +13,7 @@ const mongoURI = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGOD
 
 const initDb = async () => {
     try {
-        await mongoose.connect(mongoURI);
+        await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log('Connected to DB');
     } catch (err) {
         console.error('Unable to connect to db', err);
